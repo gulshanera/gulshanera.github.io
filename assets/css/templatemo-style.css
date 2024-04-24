@@ -8,12 +8,17 @@ https://templatemo.com/tm-531-reflux
 
 @import url(fontawesome.css);
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900");
-body {
+html, body {
     font-family: 'Roboto';
     overflow-x: hidden;
+    background-size: 100% 100%;
+    overflow-x: hidden;
+    width: 100%;
 }
 
-.container education{
+
+
+.container-fluid education{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,6 +39,7 @@ body {
     -o-background-size: cover;
     background-size: cover;
     width: 100%;
+    background-size: 100% 100%;
 }
 
 .skill {
@@ -92,7 +98,7 @@ body {
     margin-bottom: 4rem;
   }
   
-  .skills-container {
+  .skills-container-fluid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     align-items: center;
@@ -100,7 +106,7 @@ body {
     bottom: auto;
   }
   
-  .skills-container skill {
+  .skills-container-fluid skill {
     position: relative;
     border-radius: 2rem;
     box-shadow: 0 0 1rem var(--bg-color);
@@ -181,7 +187,7 @@ html {
     clear: both;
 }
 
-.container {
+.container-fluid {
     margin: 0 auto;
 }
 
@@ -799,12 +805,26 @@ figure.snip1321.hover:after {
     background-position: 100% 0;
     right:-100px
 }
-@media screen and (max-width:846) {
+@media screen and (min-width:100px) and (max-width:700px) {
+    .section.work .col-md-6{
+        padding:10px;
+    
+    }
+    .section.work .content-text {
+    
+        padding:10px;
+       }
     .section.work .carousel a.carousel-control-prev{
-       overflow-x: hidden;
+    
+       opacity: 0;
+       padding: 0;
+       margin:0;
     }
     .section.work .carousel a.carousel-control-next{
-        overflow-x: hidden;
+    
+       opacity: 0;
+       padding: 0;
+       margin:0;
     }
 }
 /* Contact Me */
@@ -855,6 +875,20 @@ figure.snip1321.hover:after {
     }
 }
 
+@media screen and (min-width:300px) and (max-width: 700px) {
+    .menu {
+        left: 5%;
+    }
+
+    .section {
+        display:block;
+        color: #fff;
+        width: 100%;
+      
+       
+    }
+}
+
 @media screen and (max-width: 1680px) and (min-width: 846px) { 
     .menu .social-network ul li a {
         width: 36px;
@@ -893,7 +927,7 @@ figure.snip1321.hover:after {
 
 }
 
-.menu .container {
+.menu .container-fluid {
     padding-left: 0;
     padding-right: 0;
 }
@@ -937,7 +971,7 @@ figure.snip1321.hover:after {
         margin: 20px 0px 40px 0px;
     }
 
-    .menu .container {
+    .menu .container-fluid {
         padding-left: 15px;
         padding-right: 15px;
     }

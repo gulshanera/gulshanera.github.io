@@ -28,14 +28,15 @@ https://templatemo.com/tm-531-reflux
     <link rel="stylesheet" href="assets/css/lightbox.css" />
   </head>
 
-  <body>
-    <div id="page-wraper">
+  <body  id="page-wraper">
+
+     
       <!-- Sidebar Menu -->
       <div class="responsive-nav">
         <i class="fa fa-bars" id="menu-toggle"></i>
         <div id="menu" class="menu">
           <i class="fa fa-times" id="menu-close"></i>
-          <div class="container">
+          <div class="container-fluid">
             <div class="image">
               <a href="#"><img src="assets/images/author-image.jpg" alt="" /></a>
             </div>
@@ -80,7 +81,7 @@ https://templatemo.com/tm-531-reflux
       </div>
 
       <section class="section about-me" data-section="section1">
-        <div class="container">
+        <div class="container-fluid">
           <div class="section-heading">
             <h2>About Me</h2>
             <div class="line-dec"></div>
@@ -167,7 +168,7 @@ https://templatemo.com/tm-531-reflux
           </div> -->
 
       <section class="section my-services" data-section="section2">
-        <div class="container">
+        <div class="container-fluid">
           <div class="section-heading">
             <h2>What I’m good at?</h2>
             <div class="line-dec"></div>
@@ -262,7 +263,10 @@ https://templatemo.com/tm-531-reflux
             </div>
             </div>
             </section>
-      <section class="section work" id="work" data-section="section3">
+
+
+
+      <section class="section work"  data-section="section3">
         <div class="section-heading">
           <h2>My work</h2>
           <div class="line-dec"></div>
@@ -270,7 +274,7 @@ https://templatemo.com/tm-531-reflux
             >My primary focus revolves around designing and creating affordable solutions for air pollution monitors tailored to Indian weather conditions. In addition to product design, I have a keen interest in data analysis and exploring innovative visualization techniques to simplify complex datasets.</span
           >
         </div>
-        <div class="container">
+        <div class="container-fluid">
           <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-cycle-pause-on-hover="#carouselExampleIndicators" data-ride="carousel">
       
             <div class="carousel-inner">
@@ -379,8 +383,8 @@ https://templatemo.com/tm-531-reflux
         </div>
       </section>
 
-      <section class="section contact" id="contact" data-section="section4">
-          <div class="container">
+      <section class="section contact"  data-section="section4">
+          <div class="container-fluid">
             <div class="section-heading">
               <h2>Contact</h2>
               <div class="line-dec"></div>
@@ -399,7 +403,7 @@ https://templatemo.com/tm-531-reflux
           </div>
       </section>
 
-    </div>
+ 
 
 
     <!-- Scripts -->
@@ -439,7 +443,7 @@ https://templatemo.com/tm-531-reflux
       var checkSection = function checkSection() {
         $(".section").each(function() {
           var $this = $(this),
-            topEdge = $this.offset().top - 80,
+            topEdge = $this.offset().top -500,
             bottomEdge = topEdge + $this.height(),
             wScroll = $(window).scrollTop();
           if (topEdge < wScroll && bottomEdge > wScroll) {
