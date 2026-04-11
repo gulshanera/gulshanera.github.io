@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gulshan Kumar | Research</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #8C1515;
+            --text-main: #2e2d29;
+            --text-muted: #555555;
+            --bg-color: #f9f9f9;
+            --border-color: #e5e5e5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 { font-weight: 600; margin-top: 0; }
+        a { color: var(--primary-color); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Top Navigation Header */
+        .site-header {
+            background-color: #ffffff;
+            border-top: 6px solid var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 40px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000; 
+        }
+
+        .site-title {
+            grid-column: 1;
+            justify-self: start;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .site-title:hover { text-decoration: none; color: var(--primary-color); }
+
+        .site-nav {
+            grid-column: 2;
+            justify-self: center;
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .site-nav a {
+            color: var(--text-muted);
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.2s ease;
+            padding-bottom: 4px;
+        }
+
+        .site-nav a:hover, .site-nav a.active {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        /* Left Sidebar (Profile Info) */
+        .profile-sidebar {
+            flex: 0 0 300px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 120px; 
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            border: 4px solid var(--border-color);
+        }
+
+        .profile-name {
+            font-size: 1.75rem;
+            text-align: center;
+            margin-bottom: 5px;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .profile-title {
+            font-size: 0.95rem;
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            word-break: break-word;
+        }
+
+        .contact-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .contact-label { font-weight: 600; min-width: 65px; color: var(--text-main); }
+
+        /* Right Content Area */
+        .profile-content {
+            flex: 1;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .section { margin-bottom: 45px; }
+        .section:last-child { margin-bottom: 0; }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .item-list { list-style: none; padding: 0; margin: 0; }
+        
+        .item-entry {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .item-entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .item-title { font-weight: 600; font-size: 1.05rem; margin-bottom: 4px; color: var(--text-main); }
+        .item-desc { font-size: 0.95rem; margin: 0; }
+
+        /* Responsive Design */
+        @media (max-width: 850px) {
+            .site-header { display: flex; flex-direction: column; gap: 15px; padding: 20px; }
+            .site-nav { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .container { flex-direction: column; align-items: center; margin-top: 20px; }
+            .profile-sidebar { flex: none; width: 100%; max-width: 500px; position: static; box-sizing: border-box; }
+            .profile-content { width: 100%; box-sizing: border-box; padding: 25px; }
+        }
+        /* Research Entry Image Layout */
+        .research-content-wrapper {
+            display: flex;
+            gap: 20px;
+            margin-top: 12px;
+            align-items: flex-start;
+        }
+
+        .research-img {
+            flex: 0 0 280px; /* Keeps the image width at exactly 280px */
+            width: 280px;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Stack image and text on smaller screens */
+        @media (max-width: 768px) {
+            .research-content-wrapper {
+                flex-direction: column;
+            }
+            .research-img {
+                flex: none;
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+        /* Research Intro Section Layout */
+        .research-intro-wrapper {
+            display: flex;
+            gap: 30px;
+            align-items: center; /* Centers the image vertically with the text */
+        }
+
+        .research-intro-text {
+            flex: 1; /* Allows text to take up remaining space */
+        }
+
+        .research-intro-img {
+            flex: 0 0 350px; /* Forces the image to be 350px wide */
+            width: 350px;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Gives it a nice subtle shadow */
+            object-fit: cover;
+        }
+
+        /* Mobile layout adjustments */
+        @media (max-width: 850px) {
+            .research-intro-wrapper {
+                flex-direction: column; /* Stacks text and image vertically */
+            }
+            .research-intro-img {
+                flex: none;
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto; /* Centers the image on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="index.html" class="site-title">Gulshan Kumar</a>
+        <ul class="site-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html" class="active">Research</a></li>
+            <li><a href="design.html">Product Design</a></li>
+            <li><a href="publications.html">Publications</a></li>
+        </ul>
+    </header>
+
+    <div class="container">
+        <!-- <aside class="profile-sidebar">
+            <img src="https://via.placeholder.com/200" alt="Gulshan Kumar" class="profile-image">
+            <h1 class="profile-name">Gulshan Kumar</h1>
+            <div class="profile-title">Ph.D. Candidate (Thesis Submitted)<br>Department of Design, IIT Delhi</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-label">Email 1:</span>
+                    <span><a href="mailto:Gulshan.kumar@design.iitd.ac.in">Gulshan.kumar@design.iitd.ac.in</a></span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Email 2:</span>
+                    <span><a href="mailto:gulshanera@gmail.com">gulshanera@gmail.com</a></span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Website:</span>
+                    <span><a href="https://gulshanera.in">gulshanera.in</a></span>
+                </div>
+            </div>
+        </aside> -->
+
+        <main class="profile-content">
+            
+            <section class="section">
+                <h2 class="section-title">Research Focus</h2>
+                
+                <div class="research-intro-wrapper">
+                    <div class="research-intro-text">
+                        <p style="text-align: justify; margin-top: 0;">My research focuses on bridging environmental challenges with engineering solutions by developing and deploying advanced monitoring technologies. I specialize in designing low-cost sensing systems, performing rigorous calibration and validation, and analyzing high-resolution environmental data to assess impacts on human health and ecosystems. Through integrating sensor networks and data-driven approaches, my work aims to deliver reliable, scalable solutions for urban air quality management and informed decision-making.</p>
+                    </div>
+                    
+                    <img src="assets/image/DPCC site.png" alt="Gulshan working on sensor deployment" class="research-intro-img">
+                </div>
+            </section>
+
+            
+
+            <section class="section">
+                <h2 class="section-title">Research Works</h2>
+                <ul class="item-list">
+                    
+                    <li class="item-entry">
+                        <div class="item-title">LCS Evaluation under High Humidity and PM exposure conditions in Delhi's Winter</div>
+                        
+                        <div class="research-content-wrapper">
+                            <img src="assets/image/highpmdelhi.png" alt="Delhi LCS evaluation under high PM exposure" class="research-img">
+                            <p style="text-align: justify;" class="item-desc">
+                            Delhi’s unique geographical setting, combined with intense anthropogenic emissions and unfavorable meteorological conditions during winter, makes it one of the most polluted regions in the world. Addressing this challenge requires high spatiotemporal resolution data on particulate matter (PM), which conventional reference-grade monitors cannot provide at scale due to cost and operational constraints. Low-cost sensors (LCS) offer a promising alternative; however, their reliability under such extreme conditions has not been thoroughly evaluated. To address this gap, we conducted a four-month collocated field study during winter, deploying multiple LCS alongside a reference monitor. The results show that LCS performance degrades significantly at relative humidity levels above 80% and at PM<sub>2.5</sub> concentrations exceeding 100 &micro;g/m<sup>3</sup>, highlighting key limitations in high-pollution environments. The detailed study is published in <a href="https://ieeexplore.ieee.org/document/11106338" target="_blank">IEEE Sensors Journal</a>.</p>
+                        </div>
+                    </li>
+
+                    <li class="item-entry">
+                        <div class="item-title">Comprehensive Field Evaluation of Low-Cost PM Sensors in Arid Conditions: Effects of Humidity, Particle Size, and Composition</div>
+                        
+                        <div class="research-content-wrapper">
+                            <img src="assets/image/Jodhpur_Experiment_Setup.png" alt="Jodhpur setup" class="research-img">
+                            <p style="text-align: justify;" class="item-desc"> Performance of LCS in arid, dust-dominated conditions remains uncertain. This ongoing study in Jodhpur, India evaluates three commercial sensors using collocation with BAM 1020 (77 days) and GRIMM OPC (17 days). All sensors meet precision criteria (CV &lt; 30%), with Plantower showing highest agreement (R<sup>2</sup> &gt; 0.76), followed by Sensirion and Honeywell. Strong linearity is observed for fine particles, while performance drops sharply for coarse fractions, reflecting limited sensitivity beyond 2.5 &micro;m and mineral dust dominance. Results indicate reliable fine PM measurement but significant uncertainty in coarse particle estimation.</p>
+                        </div>
+                    </li>
+
+                    <li class="item-entry">
+                        <div class="item-title">A Long-Term Collocated Evaluation of Low-Cost Particulate Matter Sensors: Influence of Co-Pollutants and Meteorological Factors</div>
+                        
+                        <div class="research-content-wrapper">
+                            <img src="assets/image/TB_sitesetup.jpg" alt="Delhi setup" class="research-img">
+                            <p style="text-align: justify;" class="item-desc">Reliable PM<sub>2.5</sub> data from LCS remains uncertain under extreme pollution conditions such as Delhi, where high concentrations, winter stagnation, and complex emission sources challenge measurement accuracy. This ongoing work addresses the lack of long-term, real-world evaluation by deploying 12 sensors (Plantower, Honeywell, Sensirion) alongside a reference monitor over one year to quantify accuracy, precision, and environmental sensitivity. Results indicate strong variability in performance driven by humidity, concentration levels, and seasonal conditions, highlighting the need for location-specific calibration. Ongoing analysis further examines the influence of greenery, wind speed and direction, solar radiation, and cross-pollutants on sensor response to improve reliability in complex urban environments.</p>
+                        </div>
+                    </li>
+
+                    <li class="item-entry">
+                        <div class="item-title">Sampling Frequency Effects on PM Sensors and Short-Term Events</div>
+                        
+                        <div class="research-content-wrapper">
+                            <img src="assets/image/Plume_event.jpg" alt="Sampling" class="research-img">
+                            <p style="text-align: justify;" class="item-desc">The impact of sampling frequency on low-cost PM sensor performance remains unclear despite its importance for optimizing data quality and power use. This study evaluates five SPS30 sensors over one month, comparing performance across sampling intervals from 15 seconds to 60 minutes under high and variable PM<sub>2.5</sub> conditions. Results show minimal change in accuracy and linearity across intervals, indicating limited benefit of high-frequency sampling for long-term trends. However, lower sampling frequencies fail to capture short-lived plume events, highlighting a trade-off between data resolution and energy efficiency. These findings support application-specific optimization of sampling strategies, particularly for battery-powered and large-scale deployments.</p>                        
+                        </div>
+                    </li>
+
+                    <li class="item-entry">
+                        <div class="item-title">Air Flow-Rate based Measurement Drift Correction in Low-Cost PM Sensors</div>
+                        
+                        <div class="research-content-wrapper">
+                            <img src="assets/image/drift.jpg" alt="Drift" class="research-img">
+                            <p style="text-align: justify;" class="item-desc">Long-term drift in low-cost PM sensors remains insufficiently understood despite its impact on data reliability. This study evaluates drift by comparing new, used, and cleaned sensors against a reference BAM under real-world conditions in Delhi. Results show that prolonged deployment leads to dust and debris accumulation, reducing internal airflow by up to 75% and causing systematic underestimation of PM concentrations. Cleaning restores airflow and significantly improves performance, demonstrating that drift is largely driven by physical blockage rather than sensor degradation. These findings highlight the need for routine maintenance and onsite flow verification to ensure reliable long-term sensor operation.</p>
+                        </div>
+                    </li>
+
+                </ul>
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>

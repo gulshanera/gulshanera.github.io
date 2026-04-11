@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gulshan Kumar | Home</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #8C1515;
+            --text-main: #2e2d29;
+            --text-muted: #555555;
+            --bg-color: #f9f9f9;
+            --border-color: #e5e5e5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 { font-weight: 600; margin-top: 0; }
+        a { color: var(--primary-color); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Top Navigation Header - Centered Layout */
+        .site-header {
+            background-color: #ffffff;
+            border-top: 6px solid var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 40px;
+            
+            /* Grid layout allows perfect centering of the nav */
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000; 
+        }
+
+        .site-title {
+            grid-column: 1;
+            justify-self: start;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .site-title:hover { text-decoration: none; color: var(--primary-color); }
+
+        .site-nav {
+            grid-column: 2;
+            justify-self: center;
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .site-nav a {
+            color: var(--text-muted);
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.2s ease;
+            padding-bottom: 4px;
+        }
+
+        .site-nav a:hover, .site-nav a.active {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        /* Left Sidebar (Profile Info) */
+        .profile-sidebar {
+            flex: 0 0 300px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 120px; 
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            border: 4px solid var(--border-color);
+        }
+
+        .profile-name {
+            font-size: 1.75rem;
+            text-align: center;
+            margin-bottom: 5px;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .profile-title {
+            font-size: 0.95rem;
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            word-break: break-word;
+        }
+
+        .contact-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .contact-label { font-weight: 600; min-width: 65px; color: var(--text-main); }
+
+        /* Right Content Area */
+        .profile-content {
+            flex: 1;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .section { margin-bottom: 45px; }
+        .section:last-child { margin-bottom: 0; }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .item-list { list-style: none; padding: 0; margin: 0; }
+        
+        .item-entry {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .item-entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .item-title { font-weight: 600; font-size: 1.05rem; margin-bottom: 4px; color: var(--text-main); }
+        .item-meta { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px; }
+        .item-desc { font-size: 0.95rem; margin: 0; }
+
+        /* Responsive Design */
+        @media (max-width: 850px) {
+            .site-header {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+            .site-nav { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .container { flex-direction: column; align-items: center; margin-top: 20px; }
+            .profile-sidebar { flex: none; width: 100%; max-width: 500px; position: static; box-sizing: border-box; }
+            .profile-content { width: 100%; box-sizing: border-box; padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="index.html" class="site-title">Gulshan Kumar</a>
+        
+        <ul class="site-nav">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="design.html">Product Design</a></li>
+            <li><a href="publications.html">Publications</a></li>
+        </ul>
+    </header>
+
+    <div class="container">
+        <aside class="profile-sidebar">
+            <img src="assets/image/gulshan_DP.png" alt="Gulshan Kumar" class="profile-image">
+            
+            <h1 class="profile-name">Gulshan Kumar</h1>
+            <div class="profile-title">Ph.D. Candidate<br>Department of Design, IIT Delhi</div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <!-- <span class="contact-label">Email 1:</span> -->
+                    <!-- <span><a href="mailto:Gulshan.kumar@design.iitd.ac.in">Gulshan.kumar@design.iitd.ac.in</a></span> -->
+                </div>
+                <div class="contact-item">
+                    <!-- <span class="contact-label">Email 2:</span> -->
+                    <!-- <span><a href="mailto:gulshanera@gmail.com">gulshanera@gmail.com</a></span> -->
+                </div>
+                <!-- <div class="contact-item">
+                    <span class="contact-label">Linkedin:</span>
+                    <span><a href="https://">gulshanera.in</a></span>
+                </div> -->
+            </div>
+        </aside>
+
+        <main class="profile-content">
+            
+            <section class="section">
+                <h2 class="section-title">Biography</h2>
+                <p style="text-align: justify;">Passionate about low-cost air pollution sensors and democratizing access to environmental data for communities worldwide. As a mechanical engineer deeply committed to tackling real-world challenges, my journey has evolved to embrace the integration of mechatronics and human health. This multidisciplinary background paves the way for data-driven, human-centered solutions with tangible, real-world applications.</p>
+                <p style="text-align: justify;">Currently a Ph.D. Candidate in the Department of Design at IIT Delhi, my primary focus revolves around designing and creating affordable solutions for air pollution monitors tailored to diverse weather conditions.</p>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Research Interests</h2>
+                <ul style="line-height: 1.8;">
+                    <li>Product Design for Environmental Monitoring </li>
+                    <li>Human-Centered Personal Exposure Monitors</li>
+                    <li>Interaction Design & Data Visualization </li>
+                    <li>Embedded Systems & Open-Source Hardware </li>
+                    <li>Data-Driven Approaches for Sensor Performance Evaluation, Calibration and Drift Detection.</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Education</h2>
+                <ul class="item-list">
+                    <li class="item-entry">
+                        <div class="item-title">Ph.D., Indian Institute of Technology, Delhi (2019-Continuing)</div>
+                        <div class="item-meta">Department of Design</div>
+                        <p class="item-desc">Advisors: Dr. Jay Dhariwal, Dr. Seshan Srirangarajan. Thesis Submitted.</p>
+                        <p class="item-desc">Thesis: Performance Assessment of Low-Cost PM Sensors under Diverse Exposure and Meteorological Conditions</p>
+                    </li>
+                    <li class="item-entry">
+                        <div class="item-title">M.Tech., Indian Institute of Technology, Bhubaneswar (2016-2018)</div>
+                        <div class="item-meta"> Mechanical System Design</div>
+                        <p class="item-desc">Advisors: Dr. Satyanarayan Panigrahi, Dr. V. Pandu Ranga.</p>
+                        <p class="item-desc">Thesis: Design and Development of Unmanned Ground Vehicle</p>
+                    </li>
+                    <li class="item-entry">
+                        <div class="item-title">B.Tech., Punjab Technical University (2010-2014)</div>
+                        <div class="item-meta">Mechanical Engineering </div>
+                        <p class="item-desc">Thesis: Design and Development of Partial Submersible Turbine</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Experience</h2>
+                <ul class="item-list">
+                    <li class="item-entry">
+                        <div class="item-title">Principal Project Scientist, Department of Electrical Engineering </div>
+                        <div class="item-meta">IIT Delhi (2026- Continuing)</div>
+                    </li>
+                    <li class="item-entry">
+                        <div class="item-title">Senior Project Scientist, Makerspace </div>
+                        <div class="item-meta">IIT Delhi (2024- 2025)</div>
+                    </li>
+                    <li class="item-entry">
+                        <div class="item-title">Researcher and Teaching Assistant</div>
+                        <div class="item-meta">IIT Delhi (2019-2024)</div>
+                        <p class="item-desc">Low Cost Particulate Matter Sensors. Data Driven Design (DDL735), Design with Contemporary Technology (DDL124), and Introduction to IoT Prototyping (DSL810).</p>
+                    </li>
+                    <li class="item-entry">
+                        <div class="item-title">Faculty</div>
+                        <div class="item-meta">Institute of Design and Art</div>
+                        <p class="item-desc">Quantitative Aptitude/ Analytical Ability, Physics, Mathematics</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Technical Domains</h2>
+                <ul class="item-list">
+                    <li class="item-entry">
+                        <div class="item-title">Air Quality & Aerosol Instrumentation</div>
+                        <p style="text-align: justify;" class="item-desc">Extensive field and laboratory experience evaluating low-cost PM monitors (e.g., Sensirion SPS30, Plantower PMS7003, Honeywell, shinyei). Proficient with Federal Equivalent Method (FEM) Monitors like BAM-1020/1022, GRIMM-11D, Aerodynamic Particle Sizers, Particle Generator (Palas AGK 2000) and Aethalometer AE33.</p>
+                    </li>
+                    <li class="item-entry">
+                        <div class="item-title">Data Analysis & Visualization</div>
+                        <p style="text-align: justify;" class="item-desc">Over 6 years of data analysis/ visualisation experience with Python and R-Studio. Specialized in creating dynamic dashboards (Shiny, Streamlit) using packages like Openair, tidyverse, and Plotly to unlock insights from complex spatiotemporal pollution data.</p>
+                    </li>
+                    <li class="item-entry">
+                        <div class="item-title">Embedded Electronics & IoT</div>
+                        <p style="text-align: justify;" class="item-desc">Formal training in mechatronics with a strong foundation in C/C++ programming. Experienced in developing custom sensor nodes using STM32, Seeed Studio XIAO, Arduino, and ESP microcontrollers, integrated with IoT platforms.</p>
+                    </li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>
