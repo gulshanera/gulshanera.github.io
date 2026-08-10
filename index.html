@@ -122,29 +122,59 @@
         }
 
         .profile-title {
-            font-size: 0.95rem;
             text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .profile-title .role-primary {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            display: block;
+        }
+
+        .profile-title .role-secondary {
+            font-size: 0.85rem;
+            font-weight: 400;
             color: var(--text-muted);
-            margin-bottom: 20px;
-            font-weight: 500;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .profile-title .role-divider {
+            width: 30px;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 10px auto;
         }
 
         .contact-info {
             border-top: 1px solid var(--border-color);
             padding-top: 20px;
             margin-top: 20px;
-            font-size: 0.9rem;
             word-break: break-word;
         }
 
         .contact-item {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
+            margin-bottom: 16px;
         }
 
-        .contact-label { font-weight: 600; min-width: 65px; color: var(--text-main); }
+        .contact-item:last-child { margin-bottom: 0; }
+
+        .contact-label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 3px;
+        }
+
+        .contact-item a {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
 
         /* Right Content Area */
         .profile-content {
@@ -223,21 +253,22 @@
             <img src="assets/image/gulshan_DP.png" alt="Gulshan Kumar" class="profile-image">
             
             <h1 class="profile-name">Gulshan Kumar</h1>
-            <div class="profile-title">Ph.D. Candidate<br>Department of Design, IIT Delhi</div>
+            <div class="profile-title">
+                <span class="role-primary">Principal Project Scientist</span>
+                <span class="role-secondary">Dept. of Electrical Engineering, IIT Delhi</span>
+                <div class="role-divider"></div>
+                <span class="role-secondary">Ph.D. Candidate, Department of Design</span>
+            </div>
             
             <div class="contact-info">
                 <div class="contact-item">
-                    <!-- <span class="contact-label">Email 1:</span> -->
-                    <!-- <span><a href="mailto:Gulshan.kumar@design.iitd.ac.in">Gulshan.kumar@design.iitd.ac.in</a></span> -->
+                    <span class="contact-label">Email:</span>
+                    <span><a href="mailto:Gulshan.kumar@design.iitd.ac.in">Gulshan.kumar@design.iitd.ac.in</a></span>
                 </div>
                 <div class="contact-item">
-                    <!-- <span class="contact-label">Email 2:</span> -->
-                    <!-- <span><a href="mailto:gulshanera@gmail.com">gulshanera@gmail.com</a></span> -->
+                    <span class="contact-label">LinkedIn:</span>
+                    <span><a href="https://www.linkedin.com/in/gulshanera" target="_blank" rel="noopener noreferrer">linkedin.com/in/gulshanera</a></span>
                 </div>
-                <!-- <div class="contact-item">
-                    <span class="contact-label">Linkedin:</span>
-                    <span><a href="https://">gulshanera.in</a></span>
-                </div> -->
             </div>
         </aside>
 
